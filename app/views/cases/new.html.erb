@@ -1,0 +1,12 @@
+<div class="col-lg-6 col-md-12 col-sm-12 col-xs-12">
+<h2>Add a scholarship</h2>
+<%= bootstrap_form_for(@case, layout: :horizontal, label_col: "col-sm-2", control_col: "col-sm-6") do |form| %>
+  <%= form.text_field :title, label: "Name", placeholder: "Enter scholarship name"%>
+  <%= form.attachinary_file_field :case_image, label: "Image"%>
+  <%= form.text_area :body, label: "Scholarship description", placeholder: "Enter the description of the scholarship" %>
+  <%= form.date_field :deadline %>
+  <%= form.url_field :link %>
+  <%= form.text_field :money, label: "Financing" %>
+  <%= form.submit "Post scholarship" %>
+<% end %>
+</div>

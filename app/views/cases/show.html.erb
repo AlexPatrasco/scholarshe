@@ -1,0 +1,84 @@
+<nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <div class="navbar-brand">
+      <%= link_to('ScholarShe', cases_path) %>
+      </div>
+    </div>
+    <div class="navbar-collapse">
+      <ul class="nav navbar-nav">
+        <li>
+          <%=link_to("Add scholarship", new_case_path) %>
+        </li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li>
+          <%= link_to('Logout', destroy_user_session_path, :method => :delete) %>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<div class="container">
+  <div class="col-lg-6 col-md-12 col-sm-12 col-xs-12">
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h3 class="panel-title"><%= @case.title %></h3>
+      </div>
+      <div class="panel-body">
+        <%= cl_image_tag(@case.case_image.path, width: 500, class: 'img-responsive img-thumbnail') %>
+        <p>
+          <%= simple_format @case.body %>
+          <p>
+            Deadline: <%= @case.deadline %>
+          </p>
+          <p>
+            Financing: <%= @case.money %> $
+          </p>
+          <p class="label label-primary">
+            <%= @case.link %>
+          </p>
+        </p>
+      </div>
+      <div class="panel-footer">
+        <span class="label label-default"><%= "Created by: " + @case.user.email %></span>
+        <% if current_user == @case.user %>
+          <%= link_to(edit_case_path(@case), class: 'btn btn-default btn-xs pull-right') do %>
+            <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span> Edit
+          <% end %>
+          <%= link_to(case_path(@case), method: :delete, class: 'btn btn-danger btn-xs pull-right') do %>
+            <span class="glyphicon glyphicon-trash" aria-hidden="true"></span> Delete
+          <% end %>
+        <% end %>
+      </div>
+    </div>
+    <div class="panel panel-default">
+      <div class="panel-body">
+        <h3> Provide feedback </h3>
+        <%= bootstrap_form_for([@case, Update.new], layout: :horizontal, label_col: "col-sm-3", control_col: "col-sm-8") do |form| %>
+          <%= form.text_field :title, label: "Your name", required: true %>
+          <%= form.text_field :domain, label: "Rate the scholarship", required: true %>
+          <%= form.text_area :body, label: "Comment", placeholder: "Enter the full text of your update", required: true %>
+          <%= form.submit "Post comment" %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-lg-6 col-md-12 col-sm-12 col-xs-12">
+    <% @case.updates.reverse_each do |u| %>
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <h4 class="panel-title"> <%= u.title %> </h4>
+        </div>
+        <div class="panel-body">
+          <%= simple_format u.body %>
+        </div>
+        <div class="panel-footer">
+          <span class="label label-primary"><%= u.domain %></span>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>

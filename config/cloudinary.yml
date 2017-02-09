@@ -1,0 +1,19 @@
+---
+development:
+  cloud_name: ddpr9jx17
+  api_key: '633188256186245'
+  api_secret: D1k1E4H9NnSercM-Cgk_bBVie4M
+  enhance_image_tag: true
+  static_image_support: false
+production:
+  cloud_name: ddpr9jx17
+  api_key: '633188256186245'
+  api_secret: D1k1E4H9NnSercM-Cgk_bBVie4M
+  enhance_image_tag: true
+  static_image_support: true
+test:
+  cloud_name: ddpr9jx17
+  api_key: '633188256186245'
+  api_secret: D1k1E4H9NnSercM-Cgk_bBVie4M
+  enhance_image_tag: true
+  static_image_support: false
