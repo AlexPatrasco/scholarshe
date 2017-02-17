@@ -307,3 +307,25 @@ Processing by CasesController#new as HTML
 Completed 200 OK in 186ms (Views: 178.7ms | ActiveRecord: 0.8ms)
   [1m[36mUser Load (2.8ms)[0m  [1mSELECT "users".* FROM "users"[0m
   [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users"  ORDER BY "users"."id" DESC LIMIT 1
+
+
+Started GET "/" for 127.0.0.1 at 2017-02-17 13:20:58 +0200
+  [1m[36mActiveRecord::SchemaMigration Load (3.8ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by PagesController#landing as HTML
+  Rendered pages/landing.html.erb within layouts/application (2.9ms)
+Completed 200 OK in 488ms (Views: 487.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/pages/landing.self-2862217ad956d0de882a3ca8053a76c18ff49f4bb78edece72f974445f3631b8.css?body=1" for 127.0.0.1 at 2017-02-17 13:20:58 +0200
+
+
+Started GET "/assets/application.self-ee404c627ade0f21f162b5a842419894acfd81764a997dad02b1fb4f48caebd7.css?body=1" for 127.0.0.1 at 2017-02-17 13:20:58 +0200
+
+
+Started GET "/assets/rails_bootstrap_forms.self-10cb7d2aef696c4062f219f6678eed1d57c254a6717cea25d021726a4b9a214c.css?body=1" for 127.0.0.1 at 2017-02-17 13:20:58 +0200
+
+
+Started GET "/assets/img/intro-bg-363e39f60a33b172c15fcdadca05c64a08e76ad2d038b15e9d52a1a460a3b6e8.jpg" for 127.0.0.1 at 2017-02-17 13:20:58 +0200
+
+
+Started GET "/assets/img/banner-bg-cf9172f83866fb849bd65499fd5e2f53169310c2e240868c7fd622a30e74b3ae.jpg" for 127.0.0.1 at 2017-02-17 13:20:58 +0200
